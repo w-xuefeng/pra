@@ -1,17 +1,23 @@
 <template>
-  <div id="app">    
-    <router-view/>
+  <div id="app">
+    <PRA></PRA>
   </div>
 </template>
 
 <script>
+import PRA from './components/pra.vue'
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    PRA
+  }
 }
 </script>
-<style lang="css">
-body{
-    background: #eee!important;
-    margin: 0;
-  }  
+<style>
+body {
+  background: #eee !important;
+  margin: 0;
+}
 </style>
+

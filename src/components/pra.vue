@@ -23,10 +23,10 @@
               </mu-flexbox-item>
             </mu-flexbox>            
           </div>
-          <p>
-            <mu-raised-button label="随机生成" v-if="dataArray.length != 0"  icon="cached" primary @click="autoGen"/>
-            <mu-raised-button label="测试数据" v-if="dataArray.length != 0"  icon="build" primary @click="test"/>
-            <mu-raised-button label="计算结果" v-if="dataArray.length != 0"  icon="send" primary @click="workout"/>
+          <p v-if="dataArray.length != 0" flex-justify-space-around>
+            <mu-raised-button label="随机生成" icon="cached" primary @click="autoGen"/>
+            <mu-raised-button label="测试数据" icon="build" primary @click="test"/>
+            <mu-raised-button label="计算结果" icon="send" primary @click="workout"/>
           </p>
         </mu-card-actions>
       </mu-card>
@@ -38,17 +38,17 @@
           <table class="table" cellpadding="0" cellspacing="0">
             <tr>
               <td>访问页</td>
-              <td v-for="data in dataArray" class="dataIndex">{{data.data}}</td>
+              <td v-for="(data, index) in dataArray" :key="index" class="dataIndex">{{data.data}}</td>
             </tr>
           </table> 
           <table class="table" cellpadding="0" cellspacing="0">
-            <tr v-for="m in Marray">
+            <tr v-for="(m, mIndex) in Marray" :key="mIndex">
               <td>物理块{{m.index+1}}</td>
-              <td v-for="page in pageArray">{{matrix[m.index][page.index]}}</td>
+              <td v-for="(page, pIndex) in pageArray" :key="pIndex">{{matrix[m.index][page.index]}}</td>
             </tr>
             <tr>
               <td>缺页否</td>
-              <td v-for="page in pageArray">{{page.data}}</td>
+              <td v-for="(page, index) in pageArray" :key="index">{{page.data}}</td>
             </tr>
           </table>      
         </mu-card-actions>
@@ -514,5 +514,9 @@ export default {
 }
 .iscol{
   margin-left: 1em;
+}
+p[flex-justify-space-around] {
+  display: flex;
+  justify-content: space-around;
 }
 </style>
