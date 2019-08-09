@@ -392,7 +392,7 @@ export default {
           } else {
             this.matrix[j][i] = " "
           }          
-        }        
+        }
       }
     },
     setPageNumber () {
@@ -450,7 +450,7 @@ export default {
       //关闭提示框
       this.snackbar.is = false
       if (this.snackTimer) clearTimeout(this.snackTimer)
-    }    
+    }
   },
   created () {
     this.initMatrix()
